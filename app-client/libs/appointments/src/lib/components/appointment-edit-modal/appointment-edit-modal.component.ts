@@ -80,7 +80,7 @@ export class AppointmentEditModalComponent implements OnInit {
         'Content-Type': 'application/json',
       });
 
-      this.api.patchAppointment(appointment, { headers: headers }).subscribe({
+      this.api.putAppointment(appointment, { headers: headers }).subscribe({
         next() {
           selfThis.dialogRef.close();
           window.location.reload();

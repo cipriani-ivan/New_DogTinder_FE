@@ -24,7 +24,7 @@ export interface APIClientInterface {
   /**
    * Response generated for [ 204 ] HTTP response code.
    */
-  patchAppointment(
+  putAppointment(
     appointment: string,
     requestHttpOptions?: HttpOptions
   ): Observable<void>;
@@ -66,4 +66,9 @@ export interface APIClientInterface {
    * Response generated for [ 200 ] HTTP response code.
    */
   postPlace(place: string, requestHttpOptions?: HttpOptions): Observable<void>;
+
+  /**
+   * Response generated for [ 200 ] HTTP response code.
+   */
+  postLogin(user: string, requestHttpOptions?: HttpOptions): Observable<any>;
 }

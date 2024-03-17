@@ -1,3 +1,4 @@
+import { User } from './../login/src/lib/user';
 /* tslint:disable */
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
@@ -83,7 +84,7 @@ export class APIClient implements APIClientInterface {
   /**
    * Response generated for [ 204 ] HTTP response code.
    */
-  patchAppointment(
+  putAppointment(
     appointment: string,
     requestHttpOptions?: HttpOptions
   ): Observable<void> {
@@ -93,7 +94,7 @@ export class APIClient implements APIClientInterface {
       ...requestHttpOptions,
     };
 
-    return this.sendRequest<void>('PATCH', path, options, appointment);
+    return this.sendRequest<void>('PUT', path, options, appointment);
   }
 
   /**
@@ -189,6 +190,19 @@ export class APIClient implements APIClientInterface {
 
     return this.sendRequest<void>('POST', path, options, place);
   }
+
+    /**
+   * Response generated for [ 200 ] HTTP response code.
+   */
+    postLogin(user: string, requestHttpOptions?: HttpOptions): Observable<any> {
+      const path = `/Authentication`;
+      const options: APIHttpOptions = {
+        ...this.options,
+        ...requestHttpOptions,
+      };
+  
+      return this.sendRequest<any>('POST', path, options, user);
+    }
 
   private sendRequest<T>(
     method: string,

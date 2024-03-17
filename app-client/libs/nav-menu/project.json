@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/nav-menu"],
+      "outputs": [
+        "dist/libs/nav-menu"
+      ],
       "options": {
         "project": "libs/nav-menu/ng-package.json"
       },
@@ -22,7 +24,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/nav-menu"],
+      "outputs": [
+        "coverage/libs/nav-menu"
+      ],
       "options": {
         "jestConfig": "libs/nav-menu/jest.config.ts",
         "passWithNoTests": true
@@ -31,9 +35,14 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/nav-menu/**/*.ts", "libs/nav-menu/**/*.html"]
+        "lintFilePatterns": [
+          "libs/nav-menu/**/*.ts",
+          "libs/nav-menu/**/*.html"
+        ]
       }
     }
   },
-  "tags": ["ad"]
+  "tags": [
+    "ad"
+  ]
 }

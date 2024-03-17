@@ -7,6 +7,7 @@
     "home": "libs/home",
     "nav-menu": "libs/nav-menu",
     "owners": "libs/owners",
-    "places": "libs/places"
+    "places": "libs/places",
+    "login": "login"
   }
 }

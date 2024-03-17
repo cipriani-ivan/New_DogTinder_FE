@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/places"],
+      "outputs": [
+        "dist/libs/places"
+      ],
       "options": {
         "project": "libs/places/ng-package.json"
       },
@@ -22,7 +24,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/places"],
+      "outputs": [
+        "coverage/libs/places"
+      ],
       "options": {
         "jestConfig": "libs/places/jest.config.ts",
         "passWithNoTests": true
@@ -31,9 +35,14 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/places/**/*.ts", "libs/places/**/*.html"]
+        "lintFilePatterns": [
+          "libs/places/**/*.ts",
+          "libs/places/**/*.html"
+        ]
       }
     }
   },
-  "tags": ["ad"]
+  "tags": [
+    "ad"
+  ]
 }

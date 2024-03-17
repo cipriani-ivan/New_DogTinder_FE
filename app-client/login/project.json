@@ -1,23 +1,23 @@
 {
   "projectType": "library",
-  "root": "libs/home",
-  "sourceRoot": "libs/home/src",
+  "root": "login",
+  "sourceRoot": "login/src",
   "prefix": "ad",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": [
-        "dist/libs/home"
+        "dist/login"
       ],
       "options": {
-        "project": "libs/home/ng-package.json"
+        "project": "login/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/home/tsconfig.lib.prod.json"
+          "tsConfig": "login/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/home/tsconfig.lib.json"
+          "tsConfig": "login/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -26,8 +26,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/home/**/*.ts",
-          "libs/home/**/*.html"
+          "login/**/*.ts",
+          "login/**/*.html"
         ]
       }
     }

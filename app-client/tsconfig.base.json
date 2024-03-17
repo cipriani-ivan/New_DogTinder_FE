@@ -17,6 +17,7 @@
     "paths": {
       "@ad/dogs": ["libs/dogs/src/index.ts"],
       "@ad/home": ["libs/home/src/index.ts"],
+      "@ad/login": ["login/src/index.ts"],
       "@ad/nav-menu": ["libs/nav-menu/src/index.ts"],
       "@ad/owners": ["libs/owners/src/index.ts"],
       "@ad/places": ["libs/places/src/index.ts"],
