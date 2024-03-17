@@ -1,0 +1,39 @@
+{
+  "projectType": "library",
+  "root": "libs/dogs",
+  "sourceRoot": "libs/dogs/src",
+  "prefix": "ad",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/dogs"],
+      "options": {
+        "project": "libs/dogs/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/dogs/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/dogs/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dogs"],
+      "options": {
+        "jestConfig": "libs/dogs/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/dogs/**/*.ts", "libs/dogs/**/*.html"]
+      }
+    }
+  },
+  "tags": ["ad"]
+}

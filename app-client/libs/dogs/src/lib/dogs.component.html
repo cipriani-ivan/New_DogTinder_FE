@@ -1,0 +1,67 @@
+<h1 id="tableLabel">Dogs</h1>
+
+<p>This component demonstrates dogs creation</p>
+
+<p *ngIf="!observableDogList"><em>Loading...</em></p>
+
+<table
+  aria-labelledby="tableLabel"
+  *ngIf="observableList"
+  data-test="appointmentsTable"
+>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Owner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dog of observableList | async">
+      <td>{{ dog.name }}</td>
+      <td>{{ dog.breed }}</td>
+      <td>{{ dog.owner.name }}</td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <div [hidden]="submitted">
+    <h1>Add dog</h1>
+    <form [formGroup]="profileForm">
+      <div>
+        <label for="name">name</label>
+        <input
+          type="text"
+          id="name"
+          required
+          formControlName="name"
+        />
+      </div>
+      <div>
+        <label for="name">breed</label>
+        <input
+          type="text"
+          id="breed"
+          required
+          formControlName="breed"
+        />
+      </div>
+      <select formControlName="ownerid">
+        <option value="">Choose owner</option>
+        <option *ngFor="let owner of owners" [ngValue]="owner.ownerId">
+          {{ owner.name }}
+        </option>
+      </select>
+      <div *ngIf="somethingWentWrong">
+        <strong>Something went wrong, dog not saved!</strong>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!profileForm.valid"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<h1 id="tableLabel">Places</h1>
+
+<p>This component demonstrates places creation</p>
+
+<p *ngIf="!observableList"><em>Loading...</em></p>
+
+<table
+  aria-labelledby="tableLabel"
+  *ngIf="observableList"
+  data-test="appointmentsTable"
+>
+  <thead>
+    <tr>
+      <th>Place</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let place of places">
+      <td>{{ place.address }}</td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <div [hidden]="submitted">
+    <h1>Add Place</h1>
+    <form [formGroup]="profileForm">
+      <div>
+        <label for="address">address</label>
+        <input type="text" id="address" required formControlName="address" />
+      </div>
+      <div *ngIf="somethingWentWrong">
+        <strong>Something went wrong, place not saved!</strong>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!profileForm.valid"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

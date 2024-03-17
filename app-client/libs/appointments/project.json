@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/appointments",
+  "sourceRoot": "libs/appointments/src",
+  "prefix": "ad",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/appointments"],
+      "options": {
+        "project": "libs/appointments/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/appointments/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/appointments/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/appointments"],
+      "options": {
+        "jestConfig": "libs/appointments/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/appointments/**/*.ts",
+          "libs/appointments/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["ad"]
+}

@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@ad/dogs": ["libs/dogs/src/index.ts"],
+      "@ad/home": ["libs/home/src/index.ts"],
+      "@ad/nav-menu": ["libs/nav-menu/src/index.ts"],
+      "@ad/owners": ["libs/owners/src/index.ts"],
+      "@ad/places": ["libs/places/src/index.ts"],
+      "@ad/appointments": ["libs/appointments/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

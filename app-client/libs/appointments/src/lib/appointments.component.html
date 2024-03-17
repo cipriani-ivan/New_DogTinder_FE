@@ -1,0 +1,89 @@
+<h1 id="tableLabel">Appointments</h1>
+
+<p>This component demonstrates appointments creation</p>
+
+<p *ngIf="!appointments"><em>Loading...</em></p>
+
+<table
+  aria-labelledby="tableLabel"
+  *ngIf="appointments"
+  data-test="appointmentsTable"
+>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Place</th>
+      <th>Dog (name) (breed) (owner)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let appointment of appointments">
+      <td>{{ appointment.time | date: 'mediumDate' }}</td>
+      <td>{{ appointment.place.address }}</td>
+      <td>
+        <ng-container *ngIf="appointment.dog !== null">
+          <div>
+            Dog name: <strong>{{ appointment.dog.name }}</strong> - Dog breed:
+            <strong>{{ appointment.dog.breed }}</strong> - Owner:
+            <strong>{{ appointment.dog.owner.name }}</strong>
+          </div>
+        </ng-container>
+      </td>
+      <td>
+        <button
+          (click)="
+            onClickOpenModal(
+              appointment.appointmentId,
+              appointment.dog.dogId,
+              appointment.place.placeId,
+              appointment.time
+            )
+          "
+          mat-mini-fab
+        >
+          Edit
+        </button>
+      </td>
+      <td>
+        <button (click)="onClickDelete(appointment.appointmentId)" mat-mini-fab>
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <div [hidden]="submitted">
+    <h1>Add appointment</h1>
+    <form [formGroup]="profileForm">
+      <div>
+        <label for="time">time</label>
+        <input type="date" id="time" required formControlName="time" />
+      </div>
+      <select formControlName="placeid">
+        <option value="">Choose place</option>
+        <option *ngFor="let place of places" [ngValue]="place.placeId">
+          {{ place.address }}
+        </option>
+      </select>
+
+      <select formControlName="dogid">
+        <option value="">Choose dog</option>
+        <option *ngFor="let dog of dogs" [ngValue]="dog.dogId">
+          {{ dog.name }}
+        </option>
+      </select>
+      <div *ngIf="somethingWentWrong">
+        <strong>Something went wrong, appointment not saved!</strong>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!profileForm.valid"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

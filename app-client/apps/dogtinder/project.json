@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "root": "apps/dogtinder",
+  "sourceRoot": "apps/dogtinder/src",
+  "prefix": "ad",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/dogtinder",
+        "index": "apps/dogtinder/src/index.html",
+        "main": "apps/dogtinder/src/main.ts",
+        "polyfills": "apps/dogtinder/src/polyfills.ts",
+        "tsConfig": "apps/dogtinder/tsconfig.app.json",
+        "assets": [
+          "apps/dogtinder/src/favicon.ico",
+          "apps/dogtinder/src/assets"
+        ],
+        "styles": ["apps/dogtinder/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/dogtinder/src/environments/environment.ts",
+              "with": "apps/dogtinder/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "dogtinder:build:production"
+        },
+        "development": {
+          "browserTarget": "dogtinder:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "dogtinder:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/dogtinder/**/*.ts",
+          "apps/dogtinder/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/dogtinder"],
+      "options": {
+        "jestConfig": "apps/dogtinder/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["ad"]
+}

@@ -1,0 +1,31 @@
+{
+  "projectType": "library",
+  "root": "libs/home",
+  "sourceRoot": "libs/home/src",
+  "prefix": "ad",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/home"],
+      "options": {
+        "project": "libs/home/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/home/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/home/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/home/**/*.ts", "libs/home/**/*.html"]
+      }
+    }
+  },
+  "tags": ["ad"]
+}

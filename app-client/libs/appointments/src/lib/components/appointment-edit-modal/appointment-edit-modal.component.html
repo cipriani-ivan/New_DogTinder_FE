@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Appointment</h2>
+<button type="reset" (click)="onClose()">Close</button>
+
+<p>This component demonstrates appointment editing</p>
+
+<div>
+  <h1>Edit appointment</h1>
+  <form [formGroup]="profileForm">
+    <div>
+      <label for="time">time</label>
+      <input type="date" id="time" required formControlName="time" />
+    </div>
+    <select formControlName="placeid">
+      <option value="">Choose place</option>
+      <option *ngFor="let place of places" [ngValue]="place.placeId">
+        {{ place.address }}
+      </option>
+    </select>
+
+    <select formControlName="dogid">
+      <option value="">Choose dog</option>
+      <option *ngFor="let dog of dogs" [ngValue]="dog.dogId">
+        {{ dog.name }}
+      </option>
+    </select>
+    <div *ngIf="somethingWentWrong">
+      <strong>Something went wrong, appointment not saved!</strong>
+    </div>
+    <input
+      type="text"
+      hidden
+      id="appointmentid"
+      required
+      formControlName="appointmentid"
+    />
+    <button type="submit" [disabled]="!profileForm.valid" (click)="onSubmit()">
+      Submit
+    </button>
+  </form>
+</div>

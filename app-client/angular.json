@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "projects": {
+    "appointments": "libs/appointments",
+    "dogs": "libs/dogs",
+    "dogtinder": "apps/dogtinder",
+    "home": "libs/home",
+    "nav-menu": "libs/nav-menu",
+    "owners": "libs/owners",
+    "places": "libs/places"
+  }
+}

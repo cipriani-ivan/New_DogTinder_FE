@@ -1,0 +1,43 @@
+<h1 id="tableLabel">Owners</h1>
+
+<p>This component demonstrates owners creation</p>
+
+<p *ngIf="!observableList"><em>Loading...</em></p>
+
+<table
+  aria-labelledby="tableLabel"
+  *ngIf="observableList"
+  data-test="appointmentsTable"
+>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let owner of observableList | async">
+      <td>{{ owner.name }}</td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <div [hidden]="submitted">
+    <h1>Add owner</h1>
+    <form [formGroup]="profileForm">
+      <div>
+        <label for="name">name</label>
+        <input type="text" id="name" required formControlName="name" />
+      </div>
+      <div *ngIf="somethingWentWrong">
+        <strong>Something went wrong, owner not saved!</strong>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!profileForm.valid"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
