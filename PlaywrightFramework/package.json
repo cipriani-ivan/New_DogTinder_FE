@@ -1,0 +1,16 @@
+{
+  "name": "playwrightframework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ng e2e"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.30",
+    "playwright": "^1.42.1"
+  }
+}
